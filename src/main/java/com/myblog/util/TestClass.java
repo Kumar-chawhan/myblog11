@@ -1,5 +1,7 @@
 package com.myblog.util;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
@@ -27,5 +29,12 @@ public class TestClass {
 //        List<String> d1 = Arrays.asList("mike","stalin","kumar","naveen");
 //        List<String> collect = d1.stream().map(i -> i.replace()).collect(Collectors.toList());
 //        System.out.println(collect);
+
+//           List<Integer> data = Arrays.asList(10,20,23,14,15,65,67,57,80);
+//        List<Integer> val = data.stream().distinct().collect(Collectors.toList());
+//        System.out.println(val);
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        System.out.println(passwordEncoder.encode("Testing"));
     }
 }

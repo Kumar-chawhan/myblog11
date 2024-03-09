@@ -1,34 +1,28 @@
 package com.myblog.entity;
-
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "posts")
-public class Post {
+@Table(name = "comments")
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    private String text;
 
-    private String title;
-    private String description;
-    private String content;
+    private String email;
 
-    // Define One-to-Many relationship with Comment
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    private List<Comment> comments;
+    // Define Many-to-One relationship with Post
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+    private Post post;
 
     // Constructors, getters, and setters
 }
-
-
-
