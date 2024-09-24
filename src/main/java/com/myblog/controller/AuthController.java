@@ -32,7 +32,8 @@ public class AuthController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
+    @Autowired
+     private ServiceRepository serviceRepository
 
 
     @PostMapping("/signup")
